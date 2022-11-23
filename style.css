@@ -1,0 +1,58 @@
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: #eae7dc;
+    margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+header {
+    width: auto;
+    height: 80px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#container {
+    width: auto;
+    height: 610px;
+}
+
+/*Insert the calculator grid styling in here*/
+
+#footText {
+    font-size: 16px;
+    min-width: 20vw;
+    max-width: 30vw;
+}
+
+footer {
+    width: auto;
+    height: 78px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #d8c3a5;
+}
+
+#promoBank {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 20vw;
+    max-width: 30vw;
+}
+
+.selfPromo {
+    width: 40px;
+    height: 40px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
