@@ -24,7 +24,10 @@ h1 {
     height: 610px;
 }
 
-/*Insert the calculator grid styling in here*/
+#calculator {
+    display: grid;
+    
+}
 
 #footText {
     font-size: 16px;
