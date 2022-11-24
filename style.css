@@ -31,23 +31,55 @@ h1 {
     height: 550px;
     width: 400px;
     margin: 20x;
-    border: 3px solid #8d838a;
+    border: 3px solid #232b2b;
+    background-color: #414a4c;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    border-radius: 10px;
 }
 
 #buttonBank {
     display: grid;
     grid-template-columns: auto auto auto auto;
-    column-gap: 80px;
-    row-gap: 80px;
+    gap: 20px;
     height: 400px;
     width: 400px;
-    background-color: #2196F3;
-    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 10px;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item {
+    margin: 0;
+    width: 78px;
+    height: 63px;
+    border: 2px solid #232b2b;
+    font-weight: bold;
+    font-size: 22px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.spaceHolder {
+    margin: 0;
+    width: 66px;
+    height: 44px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.grid-item:hover {
+    cursor: pointer;
+    background-color: #c7c7c7;
+}
+
+.grid-item:active{
+    background-color: #a0a0a0;
 }
 
 #footText {
