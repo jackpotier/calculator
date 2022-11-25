@@ -20,8 +20,13 @@ function calClick(){
 //Displays button press input on the top of display screen
 function displayMemory(getValue){
     memoryDrive[counter] = getValue.id;
-    currentMemory.textContent = memoryDrive;
+    if (getValue.id == 'clearAll'){
+        memoryDrive = [];
+    }
+    const displayText = memoryDrive.join('');
+    currentMemory.textContent = displayText;
     counter+=1
+    console.log(displayText);
 }
 
 
