@@ -22,4 +22,4 @@ buttonGrid.forEach(function(getValue){
 });
 
 
-//Display 
+//Display text on current memory
