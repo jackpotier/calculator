@@ -3,12 +3,14 @@ const click = new Audio("click.wav");
 let buttonGrid = document.querySelectorAll(".grid-item");
 buttonArray = Array.from(buttonGrid);
 
-//Turn number classes into operable numbers
-let numClassArray = document.querySelectorAll(".number");
-let numbers = [];
-for (let i=1; i<=10; i++){
-    numbers[i] = numClassArray[i].class;
+//Turn number 'strings' into operable numbers
+let numberStringGrid = document.getElementsByClassName("number")
+let numberStringArray = Array.from(numberStringGrid);
+for (let i=0; i<10; i++){
+    numberStringArray[i].substring('button#'.length)
 }
+numberStringArray.sort(function(a, b){return a - b});
+console.log(numberStringArray);
 
 //Makes a click sound on button press
 function calClick(){
