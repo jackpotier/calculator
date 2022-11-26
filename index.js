@@ -45,27 +45,60 @@ function displayMemory(getValue){
         memoryDrive = [];
         memoryDisplay = [];
         wholeNumbers = [];
-        counter = 0;
-        numCount = 0;
+        counter = -1;
+        numCount = -1;
     }
     else if (getValue.id == 'multiply'){
+        wholeNumbers[numCount] = memoryDrive.join("");
+        wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
+        memoryDrive = [];
+        numCount +=1;
         memoryDrive[counter] = '*';
         memoryDisplay[counter] = 'x';
+        wholeNumbers[numCount] = memoryDrive[counter];
+        memoryDrive = [];
+        numCount+=1;
     }
     else if (getValue.id == 'addition'){
+        wholeNumbers[numCount] = memoryDrive.join("");
+        wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
+        memoryDrive = [];
+        numCount +=1;
         memoryDrive[counter] = '+';
         memoryDisplay[counter] = '+'
+        wholeNumbers[numCount] = memoryDrive[counter];
+        memoryDrive = [];
+        numCount+=1;
     }
     else if (getValue.id == 'divide'){
+        wholeNumbers[numCount] = memoryDrive.join("");
+        wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
+        memoryDrive = [];
+        numCount +=1;
         memoryDrive[counter] = '/';
         memoryDisplay[counter] = '÷'
+        wholeNumbers[numCount] = memoryDrive[counter];
+        memoryDrive = [];
+        numCount+=1;
     }
     else if (getValue.id == 'minus'){
+        wholeNumbers[numCount] = memoryDrive.join("");
+        wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
+        memoryDrive = [];
+        numCount +=1;
         memoryDrive[counter] = '-';
         memoryDisplay[counter] = '-';
+        wholeNumbers[numCount] = memoryDrive[counter];
+        memoryDrive = [];
+        numCount+=1;
     }
     else if (getValue.id == 'equals'){
+        wholeNumbers[numCount] = memoryDrive.join("");
+        wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
+        memoryDrive = [];
+        numCount +=1;
         memoryDisplay = [];
+        numCount+=1;
     }
     else if (getValue.id == 'backspace'){
         memoryDrive.pop();
@@ -78,16 +111,6 @@ function displayMemory(getValue){
     else {
         memoryDrive[counter] = Number(getValue.id);
         memoryDisplay[counter] = Number(getValue.id);
-    }
-
-    if (getValue.id == 'multiply' || getValue.id == 'divide' || getValue.id == 'minus' || getValue.id == 'addition' || getValue.id == 'equals'){
-        numCount +=1
-        wholeNumbers[numCount] = memoryDrive[counter];
-        numCount-=1
-        memoryDrive.pop();
-        wholeNumbers[numCount] = memoryDrive.join("");
-        memoryDrive = [];
-        numCount +=2
     }
 
     checkDuplicate(memoryDrive);
