@@ -1,3 +1,5 @@
+//NEED TO CHANGE THE DECIMAL POINT DUPLICATE FUNCTION TO ALLOW FOR MULTIPLE DECIMAL POINTS WHEN THEY ARE IN DIFFERENT NUMBERS!
+
 //Set defaults
 const click = new Audio("click.wav");
 const syntError = "Syntax error";
