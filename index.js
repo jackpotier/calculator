@@ -1,11 +1,12 @@
 //Set defaults
 const click = new Audio("click.wav");
+const syntError = "Syntax error";
 let buttonGrid = document.querySelectorAll(".grid-item");
-buttonArray = Array.from(buttonGrid);
 let currentMemory = document.querySelector("#currentMemory");
+let ansScreen = document.querySelector("#ansScreen");
+buttonArray = Array.from(buttonGrid);
 counter = 0;
 memoryDrive = [];
-const syntError = "Syntax error";
 
 //Makes a click sound on button press
 function calClick(){
@@ -23,6 +24,10 @@ function checkDuplicate(memoryDrive){
     const duplicateElements = toFindDuplicates(memoryDrive);
     if (duplicateElements.includes(".") === true){
         console.log(syntError);
+        ansScreen.textContent = syntError;
+    }
+    if (duplicateElements.includes(".") === false){
+        ansScreen.textContent = "";
     }
     
 }
@@ -52,11 +57,11 @@ function displayMemory(getValue){
     }
     else if (getValue.id == 'decimalPoint'){
         memoryDrive[counter] = '.';
-        checkDuplicate(memoryDrive);
     }
     else {
         memoryDrive[counter] = Number(getValue.id);
     }
+    checkDuplicate(memoryDrive);
     const displayText = memoryDrive.join('');
     currentMemory.textContent = displayText;
     counter+=1
