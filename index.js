@@ -13,6 +13,8 @@ numCount = 0;
 memoryDrive = [];
 memoryDisplay = [];
 wholeNumbers = [];
+answers = [];
+
 
 //Makes a click sound on button press
 function calClick(){
@@ -96,9 +98,9 @@ function displayMemory(getValue){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
         memoryDrive = [];
-        numCount +=1;
         memoryDisplay = [];
-        numCount+=1;
+        wholeNumbers = [];
+        numCount = 0;
     }
     else if (getValue.id == 'backspace'){
         memoryDrive.pop();
