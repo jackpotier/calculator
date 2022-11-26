@@ -6,7 +6,6 @@ let currentMemory = document.querySelector("#currentMemory");
 counter = 0;
 memoryDrive = [];
 
-
 //Makes a click sound on button press
 function calClick(){
     buttonGrid.forEach(function(playSound) {
@@ -35,7 +34,7 @@ function displayMemory(getValue){
         memoryDrive[counter] = '-';
     }
     else if (getValue.id == 'equals'){
-        memoryDrive[counter] = '=';
+        memoryDrive = [];
     }
     else if (getValue.id == 'backspace'){
         memoryDrive.pop();
@@ -44,7 +43,7 @@ function displayMemory(getValue){
         memoryDrive[counter] = '.';
     }
     else {
-        memoryDrive[counter] = getValue.id;
+        memoryDrive[counter] = Number(getValue.id);
     }
     const displayText = memoryDrive.join('');
     currentMemory.textContent = displayText;
