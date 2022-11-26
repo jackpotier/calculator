@@ -10,10 +10,11 @@ let operatorSpace = document.querySelectorAll(".operator");
 buttonArray = Array.from(buttonGrid);
 counter = 0;
 numCount = 0;
+opCount = 0;
 memoryDrive = [];
 memoryDisplay = [];
 wholeNumbers = [];
-answers = [];
+operators = [];
 
 
 //Makes a click sound on button press
@@ -49,6 +50,7 @@ function displayMemory(getValue){
         wholeNumbers = [];
         counter = 0;
         numCount = 0;
+        opCount = 0;
     }
     else if (getValue.id == 'multiply'){
         wholeNumbers[numCount] = memoryDrive.join("");
@@ -57,9 +59,9 @@ function displayMemory(getValue){
         numCount +=1;
         memoryDrive[counter] = '*';
         memoryDisplay[counter] = 'x';
-        wholeNumbers[numCount] = memoryDrive[counter];
+        operators[opCount] = memoryDrive[counter];
         memoryDrive = [];
-        numCount+=1;
+        opCount+=1;
     }
     else if (getValue.id == 'addition'){
         wholeNumbers[numCount] = memoryDrive.join("");
@@ -68,9 +70,9 @@ function displayMemory(getValue){
         numCount +=1;
         memoryDrive[counter] = '+';
         memoryDisplay[counter] = '+'
-        wholeNumbers[numCount] = memoryDrive[counter];
+        operators[opCount] = memoryDrive[counter];
         memoryDrive = [];
-        numCount+=1;
+        opCount+=1;
     }
     else if (getValue.id == 'divide'){
         wholeNumbers[numCount] = memoryDrive.join("");
@@ -79,9 +81,9 @@ function displayMemory(getValue){
         numCount +=1;
         memoryDrive[counter] = '/';
         memoryDisplay[counter] = '÷'
-        wholeNumbers[numCount] = memoryDrive[counter];
+        operators[opCount] = memoryDrive[counter];
         memoryDrive = [];
-        numCount+=1;
+        opCount+=1;
     }
     else if (getValue.id == 'minus'){
         wholeNumbers[numCount] = memoryDrive.join("");
@@ -90,17 +92,20 @@ function displayMemory(getValue){
         numCount +=1;
         memoryDrive[counter] = '-';
         memoryDisplay[counter] = '-';
-        wholeNumbers[numCount] = memoryDrive[counter];
+        operators[opCount] = memoryDrive[counter];
         memoryDrive = [];
-        numCount+=1;
+        opCount+=1;
     }
     else if (getValue.id == 'equals'){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
+        console.log(wholeNumbers,operators);
         memoryDrive = [];
         memoryDisplay = [];
         wholeNumbers = [];
+        operators = [];
         numCount = 0;
+        opCount = 0;
     }
     else if (getValue.id == 'backspace'){
         memoryDrive.pop();
@@ -131,5 +136,6 @@ buttonGrid.forEach(function(getValue){
         console.log("Memory:",memoryDrive);
         console.log("Display:",memoryDisplay);
         console.log("Numbers:",wholeNumbers);
+        console.log("Operators",operators);
     })
 });
