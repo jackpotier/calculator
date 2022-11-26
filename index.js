@@ -45,8 +45,8 @@ function displayMemory(getValue){
         memoryDrive = [];
         memoryDisplay = [];
         wholeNumbers = [];
-        counter = -1;
-        numCount = -1;
+        counter = 0;
+        numCount = 0;
     }
     else if (getValue.id == 'multiply'){
         wholeNumbers[numCount] = memoryDrive.join("");
