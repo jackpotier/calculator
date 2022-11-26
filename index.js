@@ -6,9 +6,13 @@ const syntError = "Syntax error";
 let buttonGrid = document.querySelectorAll(".grid-item");
 let currentMemory = document.querySelector("#currentMemory");
 let ansScreen = document.querySelector("#ansScreen");
+let operatorSpace = document.querySelectorAll(".operator");
 buttonArray = Array.from(buttonGrid);
 counter = 0;
+numCount = 0;
 memoryDrive = [];
+memoryDisplay = [];
+wholeNumbers = [];
 
 //Makes a click sound on button press
 function calClick(){
@@ -34,40 +38,62 @@ function checkDuplicate(memoryDrive){
     
 }
 
+
 //Displays button press input on the top of display screen
 function displayMemory(getValue){
     if (getValue.id == 'clearAll'){
         memoryDrive = [];
+        memoryDisplay = [];
+        wholeNumbers = [];
+        counter = 0;
+        numCount = 0;
     }
     else if (getValue.id == 'multiply'){
-        memoryDrive[counter] = 'x';
+        memoryDrive[counter] = '*';
+        memoryDisplay[counter] = 'x';
     }
     else if (getValue.id == 'addition'){
         memoryDrive[counter] = '+';
+        memoryDisplay[counter] = '+'
     }
     else if (getValue.id == 'divide'){
-        memoryDrive[counter] = '÷';
+        memoryDrive[counter] = '/';
+        memoryDisplay[counter] = '÷'
     }
     else if (getValue.id == 'minus'){
         memoryDrive[counter] = '-';
+        memoryDisplay[counter] = '-';
     }
     else if (getValue.id == 'equals'){
-        memoryDrive = [];
+        memoryDisplay = [];
     }
     else if (getValue.id == 'backspace'){
         memoryDrive.pop();
+        memoryDisplay.pop();
     }
     else if (getValue.id == 'decimalPoint'){
         memoryDrive[counter] = '.';
+        memoryDisplay[counter] = '.';
     }
     else {
         memoryDrive[counter] = Number(getValue.id);
+        memoryDisplay[counter] = Number(getValue.id);
     }
+
+    if (getValue.id == 'multiply' || getValue.id == 'divide' || getValue.id == 'minus' || getValue.id == 'addition' || getValue.id == 'equals'){
+        numCount +=1
+        wholeNumbers[numCount] = memoryDrive[counter];
+        numCount-=1
+        memoryDrive.pop();
+        wholeNumbers[numCount] = memoryDrive.join("");
+        memoryDrive = [];
+        numCount +=2
+    }
+
     checkDuplicate(memoryDrive);
-    const displayText = memoryDrive.join('');
+    const displayText = memoryDisplay.join('');
     currentMemory.textContent = displayText;
     counter+=1
-    console.log(displayText);
 }
 
 
@@ -76,5 +102,9 @@ buttonGrid.forEach(function(getValue){
     getValue.addEventListener("click", function() {
         calClick();
         displayMemory(getValue);
+        console.log("Round",counter);
+        console.log("Memory:",memoryDrive);
+        console.log("Display:",memoryDisplay);
+        console.log("Numbers:",wholeNumbers);
     })
 });
