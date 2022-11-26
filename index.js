@@ -19,9 +19,32 @@ function calClick(){
 
 //Displays button press input on the top of display screen
 function displayMemory(getValue){
-    memoryDrive[counter] = getValue.id;
     if (getValue.id == 'clearAll'){
         memoryDrive = [];
+    }
+    else if (getValue.id == 'multiply'){
+        memoryDrive[counter] = 'x';
+    }
+    else if (getValue.id == 'addition'){
+        memoryDrive[counter] = '+';
+    }
+    else if (getValue.id == 'divide'){
+        memoryDrive[counter] = '÷';
+    }
+    else if (getValue.id == 'minus'){
+        memoryDrive[counter] = '-';
+    }
+    else if (getValue.id == 'equals'){
+        memoryDrive[counter] = '=';
+    }
+    else if (getValue.id == 'backspace'){
+        memoryDrive.pop();
+    }
+    else if (getValue.id == 'decimalPoint'){
+        memoryDrive[counter] = '.';
+    }
+    else {
+        memoryDrive[counter] = getValue.id;
     }
     const displayText = memoryDrive.join('');
     currentMemory.textContent = displayText;
