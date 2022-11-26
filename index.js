@@ -5,6 +5,7 @@ buttonArray = Array.from(buttonGrid);
 let currentMemory = document.querySelector("#currentMemory");
 counter = 0;
 memoryDrive = [];
+const syntError = "Syntax error";
 
 //Makes a click sound on button press
 function calClick(){
@@ -15,6 +16,16 @@ function calClick(){
     });
 }
 
+
+//Check for duplicate of a decimal point
+function checkDuplicate(memoryDrive){
+    const toFindDuplicates = memoryDrive => memoryDrive.filter((item, index) => memoryDrive.indexOf(item) !== index)
+    const duplicateElements = toFindDuplicates(memoryDrive);
+    if (duplicateElements.includes(".") === true){
+        console.log(syntError);
+    }
+    
+}
 
 //Displays button press input on the top of display screen
 function displayMemory(getValue){
@@ -41,6 +52,7 @@ function displayMemory(getValue){
     }
     else if (getValue.id == 'decimalPoint'){
         memoryDrive[counter] = '.';
+        checkDuplicate(memoryDrive);
     }
     else {
         memoryDrive[counter] = Number(getValue.id);
