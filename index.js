@@ -50,9 +50,11 @@ function displayMemory(getValue){
         memoryDrive = [];
         memoryDisplay = [];
         wholeNumbers = [];
+        answers = [];
         counter = 0;
         numCount = 0;
         opCount = 0;
+        ansScreen.textContent = "";
     }
     else if (getValue.id == 'multiply'){
         wholeNumbers[numCount] = memoryDrive.join("");
@@ -101,24 +103,36 @@ function displayMemory(getValue){
     else if (getValue.id == 'equals'){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
-        for (let i=0; i<numCount; i++){
-            if (operators[i] == '*'){
-                answers[i] = wholeNumbers[i]*wholeNumbers[i+1];
-                console.log(answers[i]);
+            for (let i=0; i<=numCount; i++){
+                if (wholeNumbers.length <=2){
+                    if (operators[i] == '*'){
+                        answers[i] = wholeNumbers[i]*wholeNumbers[i+1];
+                        answers[i] = Number(answers[i]);
+                        console.log(answers);
+                    }
+                    else if (operators[i] == '/'){
+                        answers[i] = wholeNumbers[i]/wholeNumbers[i+1];
+                        answers[i] = Number(answers[i]);
+                        console.log(answers);
+                    }
+                    if (operators[i] == '-'){
+                        answers[i] = wholeNumbers[i]-wholeNumbers[i+1];
+                        answers[i] = Number(answers[i]);
+                        console.log(answers);
+                    }
+                    if (operators[i] == '+'){
+                        answers[i] = wholeNumbers[i]+wholeNumbers[i+1];
+                        answers[i] = Number(answers[i]);
+                        console.log(answers);
+                    }
+                
             }
-            else if (operators[i] == '/'){
-                answers[i] = wholeNumbers[i]/wholeNumbers[i+1];
-                console.log(answers[i]);
-            }
-            if (operators[i] == '-'){
-                answers[i] = wholeNumbers[i]-wholeNumbers[i+1];
-                console.log(answers[i]);
-            }
-            if (operators[i] == '+'){
-                answers[i] = wholeNumbers[i]+wholeNumbers[i+1];
-                console.log(answers[i]);
-            }
-            
+                if (wholeNumbers.length > 2){
+                    if (operators[i] == '*'){
+                        answers[i] = answers[i-1]*wholeNumbers[i+1];
+                        console.log(answers[i]);
+                    }
+                }
         }
         memoryDrive = [];
         memoryDisplay = [];
@@ -142,7 +156,7 @@ function displayMemory(getValue){
 
     checkDuplicate(memoryDrive);
     const displayText = memoryDisplay.join('');
-    ansScreen.textContent = answers[answers.length - 1];
+    ansScreen.textContent = answers[answers.length-1];
     currentMemory.textContent = displayText;
     counter+=1
 }
