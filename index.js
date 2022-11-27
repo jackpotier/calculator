@@ -102,22 +102,23 @@ function displayMemory(getValue){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
         for (let i=0; i<numCount; i++){
-                if (operators[i] == '*'){
-                    answers[i] = wholeNumbers[i]*wholeNumbers[i+1];
-                    console.log(answers[i]);
-                }
-                else if (operators[i] == '/'){
-                    answers[i] = wholeNumbers[i]/wholeNumbers[i+1];
-                    console.log(wholeNumbers[i]/wholeNumbers[i+1]);
-                }
-                if (operators[i] == '-'){
-                    answers[i] = wholeNumbers[i]-wholeNumbers[i+1];
-                    console.log(wholeNumbers[i]-wholeNumbers[i+1]);
-                }
-                if (operators[i] == '+'){
-                    answers[i] = wholeNumbers[i]+wholeNumbers[i+1];
-                    console.log(wholeNumbers[i]+wholeNumbers[i+1]);
+            if (operators[i] == '*'){
+                answers[i] = wholeNumbers[i]*wholeNumbers[i+1];
+                console.log(answers[i]);
             }
+            else if (operators[i] == '/'){
+                answers[i] = wholeNumbers[i]/wholeNumbers[i+1];
+                console.log(answers[i]);
+            }
+            if (operators[i] == '-'){
+                answers[i] = wholeNumbers[i]-wholeNumbers[i+1];
+                console.log(answers[i]);
+            }
+            if (operators[i] == '+'){
+                answers[i] = wholeNumbers[i]+wholeNumbers[i+1];
+                console.log(answers[i]);
+            }
+            
         }
         memoryDrive = [];
         memoryDisplay = [];
