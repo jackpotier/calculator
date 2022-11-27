@@ -11,10 +11,12 @@ buttonArray = Array.from(buttonGrid);
 counter = 0;
 numCount = 0;
 opCount = 0;
+ansCount = 0;
 memoryDrive = [];
 memoryDisplay = [];
 wholeNumbers = [];
 operators = [];
+answers = [];
 
 
 //Makes a click sound on button press
@@ -99,7 +101,24 @@ function displayMemory(getValue){
     else if (getValue.id == 'equals'){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
-        console.log(wholeNumbers,operators);
+        for (let i=0; i<numCount; i++){
+                if (operators[i] == '*'){
+                    answers[i] = wholeNumbers[i]*wholeNumbers[i+1];
+                    console.log(answers[i]);
+                }
+                else if (operators[i] == '/'){
+                    answers[i] = wholeNumbers[i]/wholeNumbers[i+1];
+                    console.log(wholeNumbers[i]/wholeNumbers[i+1]);
+                }
+                if (operators[i] == '-'){
+                    answers[i] = wholeNumbers[i]-wholeNumbers[i+1];
+                    console.log(wholeNumbers[i]-wholeNumbers[i+1]);
+                }
+                if (operators[i] == '+'){
+                    answers[i] = wholeNumbers[i]+wholeNumbers[i+1];
+                    console.log(wholeNumbers[i]+wholeNumbers[i+1]);
+            }
+        }
         memoryDrive = [];
         memoryDisplay = [];
         wholeNumbers = [];
@@ -122,6 +141,7 @@ function displayMemory(getValue){
 
     checkDuplicate(memoryDrive);
     const displayText = memoryDisplay.join('');
+    ansScreen.textContent = answers[answers.length - 1];
     currentMemory.textContent = displayText;
     counter+=1
 }
