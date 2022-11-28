@@ -167,6 +167,7 @@ function displayMemory(getValue){
         }
         if (duplicateElements.includes(".") === false){
             ansScreen.textContent = answers[answers.length-1];
+            decimalPoint.classList.remove("hideDecimal");
         }
     
     }
