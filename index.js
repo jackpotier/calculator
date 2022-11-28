@@ -1,5 +1,3 @@
-//NEED TO CHANGE THE DECIMAL POINT DUPLICATE FUNCTION TO ALLOW FOR MULTIPLE DECIMAL POINTS WHEN THEY ARE IN DIFFERENT NUMBERS!
-
 //Set defaults
 const click = new Audio("click.wav");
 const syntError = "Syntax error";
@@ -36,6 +34,7 @@ function displayMemory(getValue){
         memoryDisplay = [];
         wholeNumbers = [];
         answers = [];
+        operators = [];
         counter = 0;
         numCount = 0;
         opCount = 0;
@@ -89,7 +88,7 @@ function displayMemory(getValue){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
             for (let i=0; i<=numCount; i++){
-                if (ansCount <=1){
+                if (ansCount <=0){
                     if (operators[i] == '*'){
                         answers[ansCount] = wholeNumbers[i]*wholeNumbers[i+1];
                         answers[ansCount] = Number(answers[ansCount]);
@@ -112,9 +111,9 @@ function displayMemory(getValue){
                     }
                 
                 }
-                else if (ansCount > 1){
+                else if (ansCount > 0){
                     if (operators[i] == '*'){
-                        answers[ansCount] = answers[ansCount-1]*wholeNumbers[i];
+                        answers[ansCount] = answers[ansCount-1]*wholeNumbers[i+1];
                         answers[ansCount] = Number(answers[ansCount]);
                         console.log(answers);
                     }
