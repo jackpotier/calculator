@@ -29,21 +29,6 @@ function calClick(){
 }
 
 
-//Check for duplicate of a decimal point
-function checkDuplicate(memoryDrive){
-    const toFindDuplicates = memoryDrive => memoryDrive.filter((item, index) => memoryDrive.indexOf(item) !== index)
-    const duplicateElements = toFindDuplicates(memoryDrive);
-    if (duplicateElements.includes(".") === true){
-        console.log(syntError);
-        ansScreen.textContent = syntError;
-    }
-    if (duplicateElements.includes(".") === false){
-        ansScreen.textContent = "";
-    }
-    
-}
-
-
 //Displays button press input on the top of display screen
 function displayMemory(getValue){
     if (getValue.id == 'clearAll'){
@@ -157,9 +142,21 @@ function displayMemory(getValue){
         memoryDisplay[counter] = Number(getValue.id);
     }
 
-    checkDuplicate(memoryDrive);
+    //Check for duplicate of a decimal point
+    function checkDuplicate(memoryDisplay){
+        const toFindDuplicates = memoryDisplay => memoryDisplay.filter((item, index) => memoryDisplay.indexOf(item) !== index)
+        const duplicateElements = toFindDuplicates(memoryDrive);
+        if (duplicateElements.includes(".") === true){
+            console.log(syntError);
+            ansScreen.textContent = syntError;
+        }
+        if (duplicateElements.includes(".") === false){
+            ansScreen.textContent = answers[answers.length-1];
+        }
+    
+    }
+    checkDuplicate(memoryDisplay);
     const displayText = memoryDisplay.join('');
-    ansScreen.textContent = answers[answers.length-1];
     currentMemory.textContent = displayText;
     counter+=1
 }
