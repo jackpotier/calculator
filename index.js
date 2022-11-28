@@ -104,42 +104,45 @@ function displayMemory(getValue){
         wholeNumbers[numCount] = memoryDrive.join("");
         wholeNumbers[numCount] = Number(wholeNumbers[numCount]);
             for (let i=0; i<=numCount; i++){
-                if (wholeNumbers.length <=2){
+                if (ansCount <=1){
                     if (operators[i] == '*'){
-                        answers[i] = wholeNumbers[i]*wholeNumbers[i+1];
-                        answers[i] = Number(answers[i]);
+                        answers[ansCount] = wholeNumbers[i]*wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
                         console.log(answers);
                     }
                     else if (operators[i] == '/'){
-                        answers[i] = wholeNumbers[i]/wholeNumbers[i+1];
-                        answers[i] = Number(answers[i]);
+                        answers[ansCount] = wholeNumbers[i]/wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
                         console.log(answers);
                     }
                     if (operators[i] == '-'){
-                        answers[i] = wholeNumbers[i]-wholeNumbers[i+1];
-                        answers[i] = Number(answers[i]);
+                        answers[ansCount] = wholeNumbers[i]-wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
                         console.log(answers);
                     }
                     if (operators[i] == '+'){
-                        answers[i] = wholeNumbers[i]+wholeNumbers[i+1];
-                        answers[i] = Number(answers[i]);
+                        answers[ansCount] = wholeNumbers[i]+wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
                         console.log(answers);
                     }
                 
-            }
-                if (wholeNumbers.length > 2){
+                }
+                else if (ansCount > 1){
                     if (operators[i] == '*'){
-                        answers[i] = answers[i-1]*wholeNumbers[i+1];
-                        console.log(answers[i]);
+                        answers[ansCount] = answers[ansCount-1]*wholeNumbers[i];
+                        answers[ansCount] = Number(answers[ansCount]);
+                        console.log(answers);
                     }
                 }
-        }
+                ansCount+=1;
+            }
         memoryDrive = [];
         memoryDisplay = [];
         wholeNumbers = [];
         operators = [];
         numCount = 0;
         opCount = 0;
+        ansCount = 0;
     }
     else if (getValue.id == 'backspace'){
         memoryDrive.pop();
@@ -168,9 +171,9 @@ buttonGrid.forEach(function(getValue){
         calClick();
         displayMemory(getValue);
         console.log("Round",counter);
-        console.log("Memory:",memoryDrive);
-        console.log("Display:",memoryDisplay);
+        console.log("NumCount:",numCount);
         console.log("Numbers:",wholeNumbers);
         console.log("Operators",operators);
+        console.log("Answers",answers);
     })
 });
