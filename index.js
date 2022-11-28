@@ -117,6 +117,21 @@ function displayMemory(getValue){
                         answers[ansCount] = Number(answers[ansCount]);
                         console.log(answers);
                     }
+                    if (operators[i] == '/'){
+                        answers[ansCount] = answers[ansCount-1]/wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
+                        console.log(answers);
+                    }
+                    if (operators[i] == '-'){
+                        answers[ansCount] = answers[ansCount-1]-wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
+                        console.log(answers);
+                    }
+                    if (operators[i] == '+'){
+                        answers[ansCount] = answers[ansCount-1]+wholeNumbers[i+1];
+                        answers[ansCount] = Number(answers[ansCount]);
+                        console.log(answers);
+                    }
                 }
                 ansCount+=1;
             }
