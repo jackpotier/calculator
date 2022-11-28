@@ -157,7 +157,7 @@ function displayMemory(getValue){
     }
 
     //Check for duplicate of a decimal point
-    function checkDuplicate(memoryDisplay){
+    function checkDuplicate(){
         const toFindDuplicates = memoryDisplay => memoryDisplay.filter((item, index) => memoryDisplay.indexOf(item) !== index)
         const duplicateElements = toFindDuplicates(memoryDrive);
         if (duplicateElements.includes(".") === true){
@@ -169,7 +169,7 @@ function displayMemory(getValue){
         }
     
     }
-    checkDuplicate(memoryDisplay);
+    checkDuplicate();
     const displayText = memoryDisplay.join('');
     currentMemory.textContent = displayText;
     counter+=1
