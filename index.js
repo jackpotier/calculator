@@ -175,6 +175,7 @@ function displayMemory(getValue){
     const displayText = memoryDisplay.join('');
     currentMemory.textContent = displayText;
     counter+=1
+    answers = [];
 }
 
 
@@ -183,10 +184,5 @@ buttonGrid.forEach(function(getValue){
     getValue.addEventListener("click", function() {
         calClick();
         displayMemory(getValue);
-        console.log("Round",counter);
-        console.log("NumCount:",numCount);
-        console.log("Numbers:",wholeNumbers);
-        console.log("Operators",operators);
-        console.log("Answers",answers);
     })
 });
