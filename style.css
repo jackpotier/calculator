@@ -103,6 +103,15 @@ h1 {
     background-color: #a0a0a0;
 }
 
+.hideDecimal:hover {
+    background-color: #efefef;
+    opacity: 0.5;
+}
+.hideDecimal {
+    background-color: #efefef;
+    opacity: 0.5;
+}
+
 #footText {
     font-size: 16px;
     min-width: 20vw;

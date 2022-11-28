@@ -5,6 +5,7 @@ let buttonGrid = document.querySelectorAll(".grid-item");
 let currentMemory = document.querySelector("#currentMemory");
 let ansScreen = document.querySelector("#ansScreen");
 let operatorSpace = document.querySelectorAll(".operator");
+let decimalPoint = document.getElementById("decimalPoint");
 buttonArray = Array.from(buttonGrid);
 counter = 0;
 numCount = 0;
@@ -161,8 +162,8 @@ function displayMemory(getValue){
         const toFindDuplicates = memoryDisplay => memoryDisplay.filter((item, index) => memoryDisplay.indexOf(item) !== index)
         const duplicateElements = toFindDuplicates(memoryDrive);
         if (duplicateElements.includes(".") === true){
-            console.log(syntError);
             ansScreen.textContent = syntError;
+            decimalPoint.classList.add("hideDecimal");
         }
         if (duplicateElements.includes(".") === false){
             ansScreen.textContent = answers[answers.length-1];
